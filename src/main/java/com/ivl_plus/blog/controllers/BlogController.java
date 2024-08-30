@@ -50,7 +50,7 @@ public class BlogController {
         return "blog-details";
     }
 
-    @GetMapping("/blog/{id}/edit")
+    @GetMapping("/blog/{id}/edit") //редактирование статьи
     public String blogEdit(@PathVariable(value = "id") long id, Model model){
         if(!postRepository.existsById(id)){
             return "redirect:/blog";
@@ -62,9 +62,9 @@ public class BlogController {
         return "blog-edit";
     }
 
-    @PostMapping("/blog/{id}/edit") //функция для редактирования данных
+    @PostMapping("/blog/{id}/edit") //функция для обработки данных из таблицы
     public String blogPostUpdate(@PathVariable(value = "id") long id, @RequestParam String title, @RequestParam String anons, @RequestParam String full_text, Model model){
-        Post post = postRepository.findById(id).orElseThrow();
+        Post post = postRepository.findById(id).orElseThrow(); //вызов исключения, если запись не найдена
         post.setTitle(title);
         post.setAnons(anons);
         post.setFull_text(full_text);
