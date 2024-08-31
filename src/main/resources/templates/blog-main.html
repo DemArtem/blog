@@ -10,7 +10,7 @@
 <header th:insert="blocks/header :: header"></header>
 
 <div class="container mt-5">
-    <h1>Блог сайта</h1>
+    <h1>Отзывы</h1>
     <div th:each="el : ${posts}" class="alert alert-info mt-2">
         <h3 th:text="${el.title}"/>
         <p th:text="${el.anons}"/>
