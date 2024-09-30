@@ -9,7 +9,7 @@ import java.util.List;
 public class ProductService {
     private List<Product> products = new ArrayList<>();
     private long ID = 0;
-    {//добавление товаров нужно через data sql/ не добавляет в БД
+    {//добавление товаров нужно через data sql/ не добавляет в БД/ создать data.sql
         products.add(new Product(++ID,"Доска обрезная", "1 куб",300));
         products.add(new Product(++ID,"Доска обрезная сухая", "1 куб",500));
         products.add(new Product(++ID,"Доска необрезная", "1 куб",300));
