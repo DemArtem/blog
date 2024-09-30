@@ -9,7 +9,7 @@ import java.util.List;
 public class ProductService {
     private List<Product> products = new ArrayList<>();
     private long ID = 0;
-    {//добавление товаров
+    {//добавление товаров нужно через data sql/ не добавляет в БД
         products.add(new Product(++ID,"Доска обрезная", "1 куб",300));
         products.add(new Product(++ID,"Доска обрезная сухая", "1 куб",500));
         products.add(new Product(++ID,"Доска необрезная", "1 куб",300));
@@ -26,11 +26,14 @@ public class ProductService {
         products.add(new Product(++ID,"Колодец", "",450));
         products.add(new Product(++ID,"Душевая кабина", "",700));
         products.add(new Product(++ID,"Беседка", "",900));
+        //System.out.println(products.size());
+
     }
 
     public List<Product> list() {return products;}
     public void saveProduct(Product product){
         product.setId(++ID);
+
         products.add(product);
     }
 
