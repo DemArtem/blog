@@ -22,6 +22,7 @@ public class ProductService {
     private List<Product> products = new ArrayList<>();
     private long ID = 0;
     /*
+        products.add(new Product(++ID,"Доска обрезная сухая", "1 куб",500));
         products.add(new Product(++ID,"Доска необрезная", "1 куб",300));
         products.add(new Product(++ID,"Доска необрезная сухая", "1 куб",500));
         products.add(new Product(++ID,"Вагонка", "1 м.кв.",10));
