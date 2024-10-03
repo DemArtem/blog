@@ -1,15 +1,27 @@
 package com.ivl_plus.blog.serviсes;
 
+import com.ivl_plus.blog.models.Category;
 import com.ivl_plus.blog.models.Product;
+import com.ivl_plus.blog.repo.ProductRepository;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
+
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 
 @Service
+@RequiredArgsConstructor
 public class ProductService {
+    private final ProductRepository productRepository;
+
+    public Product save() {
+        return productRepository.save(new Product("Доска обрезная", "1 куб", BigDecimal.valueOf(300), 1, new Category("category1", "description of category 1")));
+    }
+
     private List<Product> products = new ArrayList<>();
     private long ID = 0;
-    {//добавление товаров нужно через data sql/ не добавляет в БД/ создать data.sql
+    /*{//добавление товаров нужно через data sql/ не добавляет в БД/ создать data.sql
         products.add(new Product(++ID,"Доска обрезная", "1 куб",300));
         products.add(new Product(++ID,"Доска обрезная сухая", "1 куб",500));
         products.add(new Product(++ID,"Доска необрезная", "1 куб",300));
@@ -28,7 +40,7 @@ public class ProductService {
         products.add(new Product(++ID,"Беседка", "",900));
         //System.out.println(products.size());
 
-    }
+    }*/
 
     public List<Product> list() {return products;}
     public void saveProduct(Product product){

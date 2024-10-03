@@ -1,9 +1,6 @@
 package com.ivl_plus.blog.models;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity
 public class Post {
@@ -13,7 +10,9 @@ public class Post {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
-    private String title, anons, full_text;
+    private String title, anons;
+    @Column(name = "full_text")
+    private String fullText;
     private int views;
 
     public Long getId() {
@@ -41,11 +40,11 @@ public class Post {
     }
 
     public String getFull_text() {//почитай сode conventions оп наименованию
-        return full_text;
+        return fullText;
     }
 
-    public void setFull_text(String full_text) {
-        this.full_text = full_text;
+    public void setFull_text(String fullText) {
+        this.fullText = fullText;
     }
 
     public int getViews() {
@@ -59,9 +58,9 @@ public class Post {
     public Post() {
     }
 
-    public Post(String title, String anons, String full_text) {
+    public Post(String title, String anons, String fullText) {
         this.title = title;
         this.anons = anons;
-        this.full_text = full_text;
+        this.fullText = fullText;
     }
 }
