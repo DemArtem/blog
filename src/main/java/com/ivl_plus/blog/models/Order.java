@@ -19,6 +19,6 @@ public class Order {
     private String status;
     @ManyToOne
     @JoinColumn(name = "customer_id")
-    private Customer order;
+    private Customer customer;
 
 }
