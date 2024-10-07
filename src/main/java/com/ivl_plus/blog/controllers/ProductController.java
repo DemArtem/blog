@@ -3,11 +3,11 @@ package com.ivl_plus.blog.controllers;
 import com.ivl_plus.blog.models.Product;
 import com.ivl_plus.blog.serviсes.ProductService;
 import lombok.RequiredArgsConstructor;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
-@Controller
+@RestController
 @RequestMapping(name = "/api/v1")
 @RequiredArgsConstructor
 public class ProductController {
