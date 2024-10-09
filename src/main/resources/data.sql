@@ -1,2 +1,15 @@
 INSERT INTO product(id,title, description, price) VALUES (1,"Доска обрезная", "1 м.куб.", 300);
 INSERT INTO product(id,title, description, price) VALUES (2,"Доска обрезная сухая", "1 м.куб.", 500);
+INSERT INTO product(id,title, description, price) VALUES (3,"Доска необрезная", "1 м.куб.", 300);
+INSERT INTO product(id,title, description, price) VALUES (4,"Доска необрезная сухая", "1 м.куб.", 500);
+INSERT INTO product(id,title, description, price) VALUES (5,"Вагонка", "1 м.куб.", 10);
+INSERT INTO product(id,title, description, price) VALUES (6,"Имитация бруса", "1 м.куб.", 20);
+INSERT INTO product(id,title, description, price) VALUES (7,"Блок-хаус", "1 м.куб.", 25);
+INSERT INTO product(id,title, description, price) VALUES (8,"Доска пола", "1 м.куб.", 25);
+INSERT INTO product(id,title, description, price) VALUES (9,"Террасная доска", "1 м.куб.", 30);
+INSERT INTO product(id,title, description, price) VALUES (10,"Туалет односкатный", "", 420);
+INSERT INTO product(id,title, description, price) VALUES (11,"Туалет двухскатный", "", 500);
+INSERT INTO product(id,title, description, price) VALUES (12,"Туалет Кукушка", "", 700);
+INSERT INTO product(id,title, description, price) VALUES (13,"Будка", "", 250);
+INSERT INTO product(id,title, description, price) VALUES (14,"Колодец", "", 450);
+INSERT INTO product(id,title, description, price) VALUES (15,"Душевая кабина", "", 700);
