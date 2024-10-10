@@ -24,7 +24,8 @@ public class ProductController {
 //подключить авторизацию   https://github.com/KirillovItstep/a0
 //https://github.com/KirillovItstep/a1
 // https://github.com/KirillovItstep/a1
-//
+//https://github.com/KirillovItstep/spring-thymeleaf-users
+
 // http://localhost:8080/api/v1/products
 // нужно через рест контроллер
 // как добавить в ProductServis
