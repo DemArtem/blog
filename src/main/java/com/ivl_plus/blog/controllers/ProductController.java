@@ -21,6 +21,7 @@ public class ProductController {
     }
 }
 
+//подключить авторизацию
 // http://localhost:8080/api/v1/products
 // нужно через рест контроллер
 // как добавить в ProductServis
