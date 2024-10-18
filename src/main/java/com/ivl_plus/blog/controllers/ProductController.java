@@ -1,23 +1,25 @@
 package com.ivl_plus.blog.controllers;
 
 import com.ivl_plus.blog.models.Product;
-import com.ivl_plus.blog.serviсes.ProductService;
+import com.ivl_plus.blog.services.ProductService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import java.util.List;
 
 @RestController
-@RequestMapping(name = "/api/v1")
+@RequestMapping("/api/v1")
 @RequiredArgsConstructor
 public class ProductController {
     private final ProductService productService;
 
     @PostMapping("/products")
-    public String saveProduct() {
-        Product product = productService.save();
+    public List<Product> saveProduct() {
+        System.out.println("request ....");
+        List<Product> product = productService.list();
         System.out.println(product);
-        return "";
+        return product;
     }
 }
 
@@ -25,9 +27,7 @@ public class ProductController {
 //https://github.com/KirillovItstep/a1
 //https://github.com/KirillovItstep/a1
 //https://github.com/KirillovItstep/spring-thymeleaf-users
-
 // http://localhost:8080/api/v1/products
-// нужно через рест контроллер
 // обычный контроллер
 // bootstrap modal пробовать в VSCode
 

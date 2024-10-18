@@ -1,4 +1,4 @@
-package com.ivl_plus.blog.serviсes;
+package com.ivl_plus.blog.services;
 
 import com.ivl_plus.blog.models.Category;
 import com.ivl_plus.blog.models.Product;
@@ -41,7 +41,9 @@ public class ProductService {
 
     }*/
 
-    public List<Product> list() {return products;}
+    public List<Product> list() {
+        return productRepository.findAll();
+    }
     public void saveProduct(Product product){
         product.setId(++ID);
 

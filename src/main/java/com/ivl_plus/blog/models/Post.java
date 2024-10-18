@@ -4,11 +4,9 @@ import javax.persistence.*;
 
 @Entity
 public class Post {
-
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
-
     private String title, anons;
     @Column(name = "full_text")
     private String fullText;

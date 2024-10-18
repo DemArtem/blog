@@ -1,8 +1,6 @@
 package com.ivl_plus.blog.models;
 
-import lombok.AllArgsConstructor;
 import lombok.Data;
-
 import javax.persistence.*;
 import java.math.BigDecimal;
 
@@ -16,7 +14,6 @@ public class Product {
     private String name;
     private String description;
     private BigDecimal price;
-    private Integer stock;
     @ManyToOne
     @JoinColumn(name = "category_id")
     private Category category;
@@ -25,7 +22,6 @@ public class Product {
         this.name = name;
         this.description = description;
         this.price = price;
-        this.stock = stock;
         this.category = category;
     }
 
@@ -61,14 +57,6 @@ public class Product {
 
     public void setPrice(BigDecimal price) {
         this.price = price;
-    }
-
-    public Integer getStock() {
-        return stock;
-    }
-
-    public void setStock(Integer stock) {
-        this.stock = stock;
     }
 
     public Category getCategory() {

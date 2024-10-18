@@ -1,7 +1,6 @@
 package com.ivl_plus.blog.models;
 
 import lombok.Data;
-
 import javax.persistence.Entity;
 import javax.persistence.Table;
 import javax.persistence.*;
