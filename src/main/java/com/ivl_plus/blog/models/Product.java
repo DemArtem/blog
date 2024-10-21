@@ -18,7 +18,7 @@ public class Product {
     @JoinColumn(name = "category_id")
     private Category category;
 
-    public Product(String name, String description, BigDecimal price, Integer stock, Category category) {
+    public Product(String name, String description, BigDecimal price, Category category) {
         this.name = name;
         this.description = description;
         this.price = price;
@@ -26,6 +26,7 @@ public class Product {
     }
 
     public Product() {}
+
 
     public Long getId() {
         return id;

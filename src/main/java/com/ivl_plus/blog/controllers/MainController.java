@@ -1,8 +1,14 @@
 package com.ivl_plus.blog.controllers;
 
+import com.ivl_plus.blog.models.Category;
+import com.ivl_plus.blog.models.Product;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+
+import java.math.BigDecimal;
+import java.util.ArrayList;
+import java.util.List;
 
 @Controller
 public class MainController {
@@ -17,6 +23,20 @@ public class MainController {
 	public String about(Model model) {
 		model.addAttribute("title", "Cтраница про нас");
 		return "about";
+	}
+
+	@GetMapping("/products")
+	public String products(Model model) {
+		List<Product> products = new ArrayList<>();
+
+		// Добавляем продукты в список !!!!!
+		products.add(new Product("Доска обрезная", "img/1.обрез.jpg", BigDecimal.valueOf(300),new Category(1L,"Доска")));
+		products.add(new Product("Доска обрезная сухая", "img/2.обрез_сух.jpg",BigDecimal.valueOf(300),new Category(1L,"Доска")));
+
+
+		// Добавляем список продуктов в модель
+		model.addAttribute("products", products);
+		return "products"; // Имя шаблона
 	}
 
 }

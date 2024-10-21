@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Модальные Окна Товаров</title>
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <style>
+        .modal-content {
+            max-width: 500px;
+            margin: auto;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+    </style>
+</head>
+<body>
+
+<div class="w3-container">
+    <h2>Модальные Окна Товаров</h2>
+
+    <!-- Кнопки для открытия модальных окон -->
+    <div>
+        <button onclick="document.getElementById('productModal1').style.display='block'" class="w3-button w3-blue w3-large">Товар 1</button>
+        <button onclick="document.getElementById('productModal2').style.display='block'" class="w3-button w3-blue w3-large">Товар 2</button>
+        <button onclick="document.getElementById('productModal3').style.display='block'" class="w3-button w3-blue w3-large">Товар 3</button>
+        <!-- Добавьте остальные кнопки для товаров 4-15 -->
+    </div>
+
+    <!-- Модальные окна -->
+    <div id="productModal1" class="w3-modal">
+        <div class="w3-modal-content w3-card-4 w3-animate-zoom">
+            <span onclick="document.getElementById('productModal1').style.display='none'" class="w3-button w3-xlarge w3-hover-red w3-display-topright" title="Закрыть">&times;</span>
+            <h3>Товар 1</h3>
+            <p><strong>Описание:</strong> Описание товара 1.</p>
+            <p><strong>Цена:</strong> 1999 Руб.</p>
+            <div class="w3-container w3-border-top w3-padding-16 w3-light-grey">
+                <button onclick="document.getElementById('productModal1').style.display='none'" type="button" class="w3-button w3-red">Закрыть</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="productModal2" class="w3-modal">
+        <div class="w3-modal-content w3-card-4 w3-animate-zoom">
+            <span onclick="document.getElementById('productModal2').style.display='none'" class="w3-button w3-xlarge w3-hover-red w3-display-topright" title="Закрыть">&times;</span>
+            <h3>Товар 2</h3>
+            <p><strong>Описание:</strong> Описание товара 2.</p>
+            <p><strong>Цена:</strong> 2999 Руб.</p>
+            <div class="w3-container w3-border-top w3-padding-16 w3-light-grey">
+                <button onclick="document.getElementById('productModal2').style.display='none'" type="button" class="w3-button w3-red">Закрыть</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="productModal3" class="w3-modal">
+        <div class="w3-modal-content w3-card-4 w3-animate-zoom">
+            <span onclick="document.getElementById('productModal3').style.display='none'" class="w3-button w3-xlarge w3-hover-red w3-display-topright" title="Закрыть">&times;</span>
+            <h3>Товар 3</h3>
+            <p><strong>Описание:</strong> Описание товара 3.</p>
+            <p><strong>Цена:</strong> 3999 Руб.</p>
+            <div class="w3-container w3-border-top w3-padding-16 w3-light-grey">
+                <button onclick="document.getElementById('productModal3').style.display='none'" type="button" class="w3-button w3-red">Закрыть</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Повторить структуру для товаров 4-15 -->
+
+</div>
+
+<script>
+    // Закрытие модального окна при клике вне его
+    window.onclick = function(event) {
+        const modals = document.querySelectorAll('.w3-modal');
+        modals.forEach(modal => {
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        });
+    }
+</script>
+
+</body>
+</html>

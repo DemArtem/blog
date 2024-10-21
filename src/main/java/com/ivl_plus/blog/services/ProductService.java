@@ -15,10 +15,6 @@ import java.util.List;
 public class ProductService {
     private final ProductRepository productRepository;
 
-    public Product save() {
-        return productRepository.save(new Product("Доска обрезная", "1 куб", BigDecimal.valueOf(300), 1, new Category("category1", "description of category 1")));
-    }
-
     private List<Product> products = new ArrayList<>();
     private long ID = 0;
     /*

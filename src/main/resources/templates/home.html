@@ -1,250 +1,116 @@
 <!DOCTYPE HTML>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <title th:text="${title}"/>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title th:text="${title}"></title>
+    <meta charset="UTF-8" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
+    <style>
+        .card {
+            border: 1px solid #e0e0e0; /* Легкая граница */
+            border-radius: 15px; /* Закругленные углы */
+            overflow: hidden; /* Убираем переполнение */
+            transition: transform 0.3s ease, box-shadow 0.3s ease; /* Плавный переход */
+        }
+
+        .card:hover {
+            transform: scale(1.05); /* Увеличение карточки */
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3); /* Тень при наведении */
+        }
+
+        .card-img-top {
+            transition: transform 0.3s ease; /* Плавный переход для изображения */
+        }
+
+        .card:hover .card-img-top {
+            transform: scale(1.1); /* Увеличение изображения при наведении */
+        }
+
+        .card-body {
+            background-color: #f8f9fa; /* Светлый фон для тела карточки */
+            border-radius: 0 0 10px 10px; /* Закругление нижних углов */
+            position: relative; /* Для позиционирования затемнения */
+            padding: 20px;
+        }
+
+        .card-body::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.2); /* Затемнение */
+            opacity: 0; /* Изначально невидимо */
+            transition: opacity 0.3s ease; /* Плавный переход для затемнения */
+        }
+
+        .card:hover .card-body::before {
+            opacity: 1; /* Затемнение при наведении */
+        }
+
+        .card-title {
+            font-weight: bold; /* Жирный шрифт для заголовка */
+        }
+
+        .card-text {
+            color: #555; /* Темный цвет текста */
+        }
+
+        .btn {
+            transition: background-color 0.3s ease; /* Плавный переход для кнопки */
+        }
+
+        .btn:hover {
+            background-color: #007bff; /* Цвет кнопки при наведении */
+            color: white; /* Белый текст на кнопке при наведении */
+        }
+    </style>
 </head>
 <body>
 
-    <header th:insert="blocks/header :: header"></header>
+<header th:insert="blocks/header :: header"></header>
 
-    <main>
-        <section class="py-5 text-center container">
-            <div class="row py-lg-5">
-                <div class="col-lg-6 col-md-8 mx-auto">
-                    <h1 class="fw-light">
-                        ДЕРЕВООБРАБОТКА И ПИЛОМАТЕРИАЛЫ В ВИТЕБСКЕ</h1>
-                    <p class="lead text-body-secondary">
-                        Первичная и вторичная обработка древесины<br>
-                        Индивидуальный заказ по черчежам<br>
-                        Готовая продукция<br>
-                        Древесная стружка<br>
-                        Cадовая мебель<br>
-                    </p>
-                    <h1 class="fw-light">
-                        КАЧЕСТВО ПО ДОСТУПНОЙ ЦЕНЕ!</h1>
-                </div>
+<main>
+    <section class="py-5 text-center container">
+        <div class="row py-lg-5">
+            <div class="col-lg-6 col-md-8 mx-auto">
+                <h1 class="fw-light">ДЕРЕВООБРАБОТКА И ПИЛОМАТЕРИАЛЫ В ВИТЕБСКЕ</h1>
+                <p class="lead text-body-secondary">
+                    Первичная деревообработка<br>
+                    Вторичная деревообработка<br>
+                    Индивидуальный заказ<br>
+                    Готовая продукция<br>
+                    Древесная стружка<br>
+                    Садовая мебель<br>
+                </p>
+                <h1 class="fw-light">КАЧЕСТВО ПО ДОСТУПНОЙ ЦЕНЕ!</h1>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <div class="album py-5 bg-body-tertiary">
-            <div class="container">
-                <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
-                    <div class="col">
-                        <div class="card shadow-sm">
-                            <img th:src="@{/img/1.обрез.jpg}" class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"></rect></img>
-                            <div class="card-body">
-                                <p class="card-text"><ya-tr-span data-index="6-0" data-translated="true" data-source-lang="en" data-target-lang="ru" data-value="This is a wider card with supporting text below as a natural lead-in to additional content. " data-translation="Описание" data-ch="0" data-type="trSpan" style="visibility: inherit !important;">Доска обрезная</ya-tr-span><ya-tr-span data-index="6-1" data-translated="true" data-source-lang="en" data-target-lang="ru" data-value="" data-translation="" data-ch="0" data-type="trSpan" style="visibility: inherit !important;"></ya-tr-span></p>
-                                <div class="d-flex justify-content-between align-items-center">
-                                    <div class="btn-group">
-                                        <button type="button" class="btn btn-sm btn-outline-secondary"><ya-tr-span data-index="7-0" data-translated="true" data-source-lang="en" data-target-lang="ru" data-value="View" data-translation="Вид" data-ch="0" data-type="trSpan" style="visibility: inherit !important;">от 300 бел.руб.</ya-tr-span></button>
-                                    </div>
-                                    <small class="text-body-secondary">1 м.куб.</small>
+    <div class="album py-5 bg-body-tertiary">
+        <div class="container">
+            <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+                <div th:each="product : ${products}" class="col">
+                    <article class="card shadow-sm">
+                        <img th:src="@{${product.image}}" class="card-img-top" width="100%" height="225" th:alt="${product.name}">
+                        <div class="card-body">
+                            <p class="card-text" th:text="${product.name}"></p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div class="btn-group">
+                                    <button type="button" class="btn btn-sm btn-outline-secondary" th:text="'от ' + ${product.price} + ' бел.руб.'"></button>
                                 </div>
+                                <small class="text-body-secondary">1 м.куб.</small>
                             </div>
                         </div>
-                    </div>
-                    <div class="col">
-                        <div class="card shadow-sm">
-                            <img th:src="@{/img/2.обрез_сух.jpg}" class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"></rect></img>
-                            <div class="card-body">
-                                <p class="card-text">Доска обрезная сухая</p>
-                                <div class="d-flex justify-content-between align-items-center">
-                                    <div class="btn-group">
-                                        <button type="button" class="btn btn-sm btn-outline-secondary">от 500 бел.руб.</button>
-                                    </div>
-                                    <small class="text-body-secondary">1 м.куб.</small>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col">
-                        <div class="card shadow-sm">
-                            <img th:src="@{/img/3.необрез.jpg}"  class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"></rect></img>
-                            <div class="card-body">
-                                <p class="card-text">Доска необрезная</p>
-                                <div class="d-flex justify-content-between align-items-center">
-                                    <div class="btn-group">
-                                        <button type="button" class="btn btn-sm btn-outline-secondary">от 300 бел.руб.</button>
-                                    </div>
-                                    <small class="text-body-secondary">1 м.куб.</small>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col">
-                        <div class="card shadow-sm">
-                            <img th:src="@{/img/4.необрез_сух.jpg}"  class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"></rect></img>
-                            <div class="card-body">
-                                <p class="card-text"><ya-tr-span data-index="9-0" data-translated="true" data-source-lang="en" data-target-lang="ru" data-value="This is a wider card with supporting text below as a natural lead-in to additional content. " data-translation="Описание" data-ch="0" data-type="trSpan" style="visibility: inherit !important;">Доска необрезная сухая</ya-tr-span><ya-tr-span data-index="9-1" data-translated="true" data-source-lang="en" data-target-lang="ru" data-value="" data-translation="" data-ch="0" data-type="trSpan" style="visibility: inherit !important;"></ya-tr-span></p>
-                                <div class="d-flex justify-content-between align-items-center">
-                                    <div class="btn-group">
-                                        <button type="button" class="btn btn-sm btn-outline-secondary"><ya-tr-span data-index="10-0" data-translated="true" data-source-lang="en" data-target-lang="ru" data-value="View" data-translation="Цена" data-ch="0" data-type="trSpan" style="visibility: inherit !important;">от 500 бел. руб.</ya-tr-span></button>
-                                    </div>
-                                    <small class="text-body-secondary">1 м.куб.</small>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col">
-                        <div class="card shadow-sm">
-                            <img th:src="@{/img/5.вагонка.jpg}"  class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"></rect></img>
-                            <div class="card-body">
-                                <p class="card-text">Вагонка</p>
-                                <div class="d-flex justify-content-between align-items-center">
-                                    <div class="btn-group">
-                                        <button type="button" class="btn btn-sm btn-outline-secondary">от 10 бел.руб.</button>
-                                    </div>
-                                    <small class="text-body-secondary">1 м.кв.</small>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col">
-                        <div class="card shadow-sm">
-                            <img th:src="@{/img/6.имитация.jpg}"  class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"></rect></img>
-                            <div class="card-body">
-                                <p class="card-text">Имитация бруса</p>
-                                <div class="d-flex justify-content-between align-items-center">
-                                    <div class="btn-group">
-                                        <button type="button" class="btn btn-sm btn-outline-secondary">от 20 бел.руб.</button>
-                                    </div>
-                                    <small class="text-body-secondary">1 м.кв.</small>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col">
-                        <div class="card shadow-sm">
-                            <img th:src="@{/img/7.блок-хаус.jpg}"  class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"></rect></img>
-                            <div class="card-body">
-                                <p class="card-text"><ya-tr-span data-index="9-0" data-translated="true" data-source-lang="en" data-target-lang="ru" data-value="This is a wider card with supporting text below as a natural lead-in to additional content. " data-translation="Описание" data-ch="0" data-type="trSpan" style="visibility: inherit !important;">Блок-хаус</ya-tr-span><ya-tr-span data-index="9-1" data-translated="true" data-source-lang="en" data-target-lang="ru" data-value="" data-translation="" data-ch="0" data-type="trSpan" style="visibility: inherit !important;"></ya-tr-span></p>
-                                <div class="d-flex justify-content-between align-items-center">
-                                    <div class="btn-group">
-                                        <button type="button" class="btn btn-sm btn-outline-secondary"><ya-tr-span data-index="10-0" data-translated="true" data-source-lang="en" data-target-lang="ru" data-value="View" data-translation="Цена" data-ch="0" data-type="trSpan" style="visibility: inherit !important;">от 25 бел. руб.</ya-tr-span></button>
-                                    </div>
-                                    <small class="text-body-secondary">1 м.кв.</small>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col">
-                        <div class="card shadow-sm">
-                            <img th:src="@{/img/8.доска пола.jpg}"  class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"></rect></img>
-                            <div class="card-body">
-                                <p class="card-text">Доска пола 27мм.</p>
-                                <div class="d-flex justify-content-between align-items-center">
-                                    <div class="btn-group">
-                                        <button type="button" class="btn btn-sm btn-outline-secondary">от 25 бел.руб.</button>
-                                    </div>
-                                    <small class="text-body-secondary">1 м.кв.</small>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col">
-                        <div class="card shadow-sm">
-                            <img th:src="@{/img/9.террасная доска.jpg}"  class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"></rect></img>
-                            <div class="card-body">
-                                <p class="card-text">Террасная доска 28мм.</p>
-                                <div class="d-flex justify-content-between align-items-center">
-                                    <div class="btn-group">
-                                        <button type="button" class="btn btn-sm btn-outline-secondary">от 30 бел.руб.</button>
-                                    </div>
-                                    <small class="text-body-secondary">1 м.кв.</small>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col">
-                        <div class="card shadow-sm">
-                            <img th:src="@{/img/10.туал_односк1.jpg}"  class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"></rect></img>
-                            <div class="card-body">
-                                <p class="card-text"><ya-tr-span data-index="9-0" data-translated="true" data-source-lang="en" data-target-lang="ru" data-value="This is a wider card with supporting text below as a natural lead-in to additional content. " data-translation="Описание" data-ch="0" data-type="trSpan" style="visibility: inherit !important;">Туалет односкатный</ya-tr-span><ya-tr-span data-index="9-1" data-translated="true" data-source-lang="en" data-target-lang="ru" data-value="" data-translation="" data-ch="0" data-type="trSpan" style="visibility: inherit !important;"></ya-tr-span></p>
-                                <div class="d-flex justify-content-between align-items-center">
-                                    <div class="btn-group">
-                                        <button type="button" class="btn btn-sm btn-outline-secondary"><ya-tr-span data-index="10-0" data-translated="true" data-source-lang="en" data-target-lang="ru" data-value="View" data-translation="Цена" data-ch="0" data-type="trSpan" style="visibility: inherit !important;">от 420 бел. руб.</ya-tr-span></button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col">
-                        <div class="card shadow-sm">
-                            <img th:src="@{/img/11.туал_двухск1.jpg}"  class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"></rect></img>
-                            <div class="card-body">
-                                <p class="card-text">Туалет двухскатный</p>
-                                <div class="d-flex justify-content-between align-items-center">
-                                    <div class="btn-group">
-                                        <button type="button" class="btn btn-sm btn-outline-secondary">от 500 бел.руб.</button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col">
-                        <div class="card shadow-sm">
-                            <img th:src="@{/img/12.туал_кукушка1.jpg}"  class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"></rect></img>
-                            <div class="card-body">
-                                <p class="card-text">Туалет "Кукушка"</p>
-                                <div class="d-flex justify-content-between align-items-center">
-                                    <div class="btn-group">
-                                        <button type="button" class="btn btn-sm btn-outline-secondary">от 700 бел.руб.</button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col">
-                        <div class="card shadow-sm">
-                            <img th:src="@{/img/13.будка1.jpg}"  class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"></rect></img>
-                            <div class="card-body">
-                                <p class="card-text"><ya-tr-span data-index="9-0" data-translated="true" data-source-lang="en" data-target-lang="ru" data-value="This is a wider card with supporting text below as a natural lead-in to additional content. " data-translation="Описание" data-ch="0" data-type="trSpan" style="visibility: inherit !important;">Будка</ya-tr-span><ya-tr-span data-index="9-1" data-translated="true" data-source-lang="en" data-target-lang="ru" data-value="" data-translation="" data-ch="0" data-type="trSpan" style="visibility: inherit !important;"></ya-tr-span></p>
-                                <div class="d-flex justify-content-between align-items-center">
-                                    <div class="btn-group">
-                                        <button type="button" class="btn btn-sm btn-outline-secondary"><ya-tr-span data-index="10-0" data-translated="true" data-source-lang="en" data-target-lang="ru" data-value="View" data-translation="Цена" data-ch="0" data-type="trSpan" style="visibility: inherit !important;">от 250 бел. руб.</ya-tr-span></button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col">
-                        <div class="card shadow-sm">
-                            <img th:src="@{/img/14.колодец1.jpg}"  class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"></rect></img>
-                            <div class="card-body">
-                                <p class="card-text">Колодец</p>
-                                <div class="d-flex justify-content-between align-items-center">
-                                    <div class="btn-group">
-                                        <button type="button" class="btn btn-sm btn-outline-secondary">от 450 бел.руб.</button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col">
-                        <div class="card shadow-sm">
-                            <img th:src="@{/img/15.душ_каб1.jpg}"  class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"></rect></img>
-                            <div class="card-body">
-                                <p class="card-text">Душевая кабина</p>
-                                <div class="d-flex justify-content-between align-items-center">
-                                    <div class="btn-group">
-                                        <button type="button" class="btn btn-sm btn-outline-secondary">от 700 бел.руб.</button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                    </article>
                 </div>
             </div>
         </div>
-    </main>
+    </div>
+</main>
 
-    <div th:insert="blocks/footer :: footer"></div>
+<footer th:insert="blocks/footer :: footer"></footer>
 
 </body>
 </html>
