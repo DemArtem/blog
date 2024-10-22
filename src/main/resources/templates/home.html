@@ -108,10 +108,8 @@
                                 <p class="card-text" th:text="${product.name}"></p>
                                 <div class="d-flex justify-content-between align-items-center">
                                     <div class="btn-group">
-<!--                                        <button onclick="document.getElementById('productModal${iterator.index + 1}}').style.display='block'" type="button" class="btn btn-sm btn-outline-secondary" th:text="'от ' + ${product.price} + ' бел.руб.'"></button>-->
-                                        <button onclick="document.getElementById('productModal${iterator.index + 1}').style.display='block'" type="button" class="btn btn-sm btn-outline-secondary" th:text="'от ' + ${product.price} + ' бел.руб.'"></button>
+<!--Индекс не переменная, вставить в productModal--><button onclick="document.getElementById('productModal${iterator.index + 1}').style.display='block'" type="button" class="btn btn-sm btn-outline-secondary" th:text="'от ' + ${product.price} + ' бел.руб.'"></button>
                                     </div>
-                                    <small class="text-body-secondary">1 м.куб.</small>
                                 </div>
                             </div>
                         </article>
@@ -133,6 +131,8 @@
             </div>
         </div>
     </div>
+    <!-- Повторить структуру для товаров 2-15 -->
+
 </main>
 
 <footer th:insert="blocks/footer :: footer"></footer>

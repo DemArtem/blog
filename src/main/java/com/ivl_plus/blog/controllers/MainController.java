@@ -24,14 +24,21 @@ public class MainController {
 		List<Product> products = new ArrayList<>();
 
 		// Добавляем продукты в список !!!!!
-		products.add(new Product("Доска обрезная", "img/1.обрез.jpg", BigDecimal.valueOf(300),new Category(1L,"Доска")));
-		products.add(new Product("Доска обрезная сухая", "img/2.обрез_сух.jpg",BigDecimal.valueOf(300),new Category(1L,"Доска")));
-		products.add(new Product("Доска обрезная сухая", "img/2.обрез_сух.jpg",BigDecimal.valueOf(300),new Category(1L,"Доска")));
-		products.add(new Product("Доска обрезная сухая", "img/2.обрез_сух.jpg",BigDecimal.valueOf(300),new Category(1L,"Доска")));
-		products.add(new Product("Доска обрезная сухая", "img/2.обрез_сух.jpg",BigDecimal.valueOf(300),new Category(1L,"Доска")));
-		products.add(new Product("Доска обрезная сухая", "img/2.обрез_сух.jpg",BigDecimal.valueOf(300),new Category(1L,"Доска")));
-		products.add(new Product("Доска обрезная сухая", "img/2.обрез_сух.jpg",BigDecimal.valueOf(300),new Category(1L,"Доска")));
-		products.add(new Product("Доска обрезная сухая", "img/2.обрез_сух.jpg",BigDecimal.valueOf(300),new Category(1L,"Доска")));
+		products.add(new Product("Доска обрезная (1м.куб.)", "img/1.обрез.jpg", BigDecimal.valueOf(300),new Category(1L,"Доска")));
+		products.add(new Product("Доска обрезная сухая (1м.куб.)", "img/2.обрез_сух.jpg",BigDecimal.valueOf(500),new Category(1L,"Доска")));
+		products.add(new Product("Доска необрезная (1м.куб.)", "img/3.необрез.jpg",BigDecimal.valueOf(300),new Category(1L,"Доска")));
+		products.add(new Product("Доска необрезная сухая (1м.куб.)", "img/4.необрез_сух.jpg",BigDecimal.valueOf(500),new Category(1L,"Доска")));
+		products.add(new Product("Вагонка (1м.кв.)", "img/5.вагонка.jpg",BigDecimal.valueOf(10),new Category(1L,"Доска")));
+		products.add(new Product("Имитация бруса (1м.кв.)", "img/6.имитация.jpg",BigDecimal.valueOf(20),new Category(1L,"Доска")));
+		products.add(new Product("Блок-хаус (1м.кв.)", "img/7.блок-хаус.jpg",BigDecimal.valueOf(25),new Category(1L,"Доска")));
+		products.add(new Product("Доска пола (1м.кв.)", "img/8.доска пола.jpg",BigDecimal.valueOf(25),new Category(1L,"Доска")));
+		products.add(new Product("Террасная доска (1м.кв.)", "img/9.террасная доска.jpg",BigDecimal.valueOf(30),new Category(1L,"Доска")));
+		products.add(new Product("Туалет односкатный", "img/10.туал_односк1.jpg",BigDecimal.valueOf(420),new Category(1L,"Туалет")));
+		products.add(new Product("Туалет двухскатный", "img/11.туал_двухск1.jpg",BigDecimal.valueOf(500),new Category(1L,"Туалет")));
+		products.add(new Product("Туалет-кукушка", "img/12.туал_кукушка1.jpg",BigDecimal.valueOf(700),new Category(1L,"Туалет")));
+		products.add(new Product("Будка", "img/13.будка1.jpg",BigDecimal.valueOf(250),new Category(1L,"Будка")));
+		products.add(new Product("Колодец", "img/14.колодец1.jpg",BigDecimal.valueOf(450),new Category(1L,"Колодец")));
+		products.add(new Product("Душевая кабина", "img/15.душ_каб1.jpg",BigDecimal.valueOf(700),new Category(1L,"Душевая кабина")));
 
 
 		// Добавляем список продуктов в модель
@@ -46,20 +53,8 @@ public class MainController {
 		return "about";
 	}
 
-	@GetMapping("/products")
-	public String products(Model model) {
-		List<Product> products = new ArrayList<>();
-
-		// Добавляем продукты в список !!!!!
-		products.add(new Product("Доска обрезная", "img/1.обрез.jpg", BigDecimal.valueOf(300),new Category(1L,"Доска")));
-		products.add(new Product("Доска обрезная сухая", "img/2.обрез_сух.jpg",BigDecimal.valueOf(300),new Category(1L,"Доска")));
-		products.add(new Product("Доска обрезная сухая", "img/2.обрез_сух.jpg",BigDecimal.valueOf(300),new Category(1L,"Доска")));
-		products.add(new Product("Доска обрезная сухая", "img/2.обрез_сух.jpg",BigDecimal.valueOf(300),new Category(1L,"Доска")));
-
-
-		// Добавляем список продуктов в модель
-		model.addAttribute("products", products);
-		return "products"; // Имя шаблона
-	}
-
 }
+//подключить авторизацию   https://github.com/KirillovItstep/a0
+//https://github.com/KirillovItstep/a1
+//https://github.com/KirillovItstep/a1
+//https://github.com/KirillovItstep/spring-thymeleaf-users
