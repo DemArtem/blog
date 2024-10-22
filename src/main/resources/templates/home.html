@@ -4,6 +4,7 @@
     <title th:text="${title}"></title>
     <meta charset="UTF-8" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     <style>
         .card {
             border: 1px solid #e0e0e0; /* Легкая граница */
@@ -64,6 +65,14 @@
             background-color: #007bff; /* Цвет кнопки при наведении */
             color: white; /* Белый текст на кнопке при наведении */
         }
+
+        .modal-content {
+            max-width: 500px;
+            margin: auto;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
     </style>
 </head>
 <body>
@@ -88,23 +97,39 @@
         </div>
     </section>
 
-    <div class="album py-5 bg-body-tertiary">
-        <div class="container">
-            <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
-                <div th:each="product : ${products}" class="col">
-                    <article class="card shadow-sm">
-                        <img th:src="@{${product.image}}" class="card-img-top" width="100%" height="225" th:alt="${product.name}">
-                        <div class="card-body">
-                            <p class="card-text" th:text="${product.name}"></p>
-                            <div class="d-flex justify-content-between align-items-center">
-                                <div class="btn-group">
-                                    <button type="button" class="btn btn-sm btn-outline-secondary" th:text="'от ' + ${product.price} + ' бел.руб.'"></button>
+    <div class="w3-container">
+        <div class="album py-5 bg-body-tertiary">
+            <div class="container">
+                <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+                    <div th:each="product, iterator : ${products}" class="col">
+                        <article class="card shadow-sm">
+                            <img th:src="@{${product.description}}" class="card-img-top" width="100%" height="225" th:alt="${product.name}">
+                            <div class="card-body">
+                                <p class="card-text" th:text="${product.name}"></p>
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <div class="btn-group">
+<!--                                        <button onclick="document.getElementById('productModal${iterator.index + 1}}').style.display='block'" type="button" class="btn btn-sm btn-outline-secondary" th:text="'от ' + ${product.price} + ' бел.руб.'"></button>-->
+                                        <button onclick="document.getElementById('productModal${iterator.index + 1}').style.display='block'" type="button" class="btn btn-sm btn-outline-secondary" th:text="'от ' + ${product.price} + ' бел.руб.'"></button>
+                                    </div>
+                                    <small class="text-body-secondary">1 м.куб.</small>
                                 </div>
-                                <small class="text-body-secondary">1 м.куб.</small>
                             </div>
-                        </div>
-                    </article>
+                        </article>
+                    </div>
                 </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Модальные окна -->
+    <div id="productModal1" class="w3-modal">
+        <div class="w3-modal-content w3-card-4 w3-animate-zoom">
+            <span onclick="document.getElementById('productModal1').style.display='none'" class="w3-button w3-xlarge w3-hover-red w3-display-topright" title="Закрыть">&times;</span>
+            <h3>Товар 1</h3>
+            <p><strong>Описание:</strong> Описание товара 1.</p>
+            <p><strong>Цена:</strong> 1999 Руб.</p>
+            <div class="w3-container w3-border-top w3-padding-16 w3-light-grey">
+                <button onclick="document.getElementById('productModal1').style.display='none'" type="button" class="w3-button w3-red">Закрыть</button>
             </div>
         </div>
     </div>
