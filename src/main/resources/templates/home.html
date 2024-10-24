@@ -177,8 +177,7 @@
                                 <h3 class="modal-title" th:text="${product.name}"></h3>
                                 <img class="product-image" th:src="${product.img}" alt="Product Image" />
                                 <p><strong>Описание: </strong></p>
-                                <p>Обрезная доска — пиломатериал размерами сечений от 16 × 8 мм до 250 × 100 мм. Обрезные доски изготавливаются из древесины разных пород.</p>
-                                <p>Основное отличие обрезной доски — это наличие обзола, не более допустимого по соответствующей нормативной документации.</p>
+                                <p class="modal-description" th:text="${product.description}"></p>
                                 <p><strong>Цена:</strong> <span th:text="${product.price} + ' бел. руб.'"></span></p>
                                 <div class="modal-footer">
                                     <button class="close-button">Закрыть</button>

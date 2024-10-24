@@ -13,14 +13,16 @@ public class Product {
     private Long id;
     private String name;
     private String img;
+    private String description;
     private BigDecimal price;
     @ManyToOne
     @JoinColumn(name = "category_id")
     private Category category;
 
-    public Product(String name, String img, BigDecimal price, Category category) {
+    public Product(String name, String img, String description, BigDecimal price, Category category) {
         this.name = name;
         this.img = img;
+        this.description = description;
         this.price = price;
         this.category = category;
     }
@@ -50,6 +52,14 @@ public class Product {
 
     public void setImg(String img) {
         this.img = img;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
     }
 
     public BigDecimal getPrice() {
