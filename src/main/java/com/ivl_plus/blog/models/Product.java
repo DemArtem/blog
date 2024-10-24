@@ -12,15 +12,15 @@ public class Product {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     private String name;
-    private String description;
+    private String img;
     private BigDecimal price;
     @ManyToOne
     @JoinColumn(name = "category_id")
     private Category category;
 
-    public Product(String name, String description, BigDecimal price, Category category) {
+    public Product(String name, String img, BigDecimal price, Category category) {
         this.name = name;
-        this.description = description;
+        this.img = img;
         this.price = price;
         this.category = category;
     }
@@ -44,12 +44,12 @@ public class Product {
         this.name = name;
     }
 
-    public String getDescription() {
-        return description;
+    public String getImg() {
+        return img;
     }
 
-    public void setDescription(String description) {
-        this.description = description;
+    public void setImg(String img) {
+        this.img = img;
     }
 
     public BigDecimal getPrice() {

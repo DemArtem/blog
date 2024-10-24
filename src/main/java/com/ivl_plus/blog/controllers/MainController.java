@@ -14,9 +14,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Controller
-//@RestController
-//@RequestMapping("/api/v1")
-//@RequiredArgsConstructor
 public class MainController {
 
 	@GetMapping("/")
@@ -58,3 +55,4 @@ public class MainController {
 //https://github.com/KirillovItstep/a1
 //https://github.com/KirillovItstep/a1
 //https://github.com/KirillovItstep/spring-thymeleaf-users
+//пагинация

@@ -66,12 +66,67 @@
             color: white; /* Белый текст на кнопке при наведении */
         }
 
+        .modal {
+            display: none; /* Скрыто по умолчанию */
+            position: fixed; /* Используем фиксированное позиционирование */
+            z-index: 1; /* Окно выше других элементов */
+            left: 0; /* Позиционируем по центру по горизонтали*/
+            top: -25%; /* Позиционируем по центру по вертикали*/
+            width: 100%;
+            height: 125%;
+            overflow: auto;
+            background-color: rgba(0,0,0,0.7); /* Черный фон с прозрачностью */
+            transition: all 0.3s ease;
+        }
+
         .modal-content {
             max-width: 500px;
-            margin: auto;
+            background-color: #fff;
+            margin: 15% auto;
             padding: 20px;
+            border: 1px solid #888;
+            border-radius: 10px; /* Закругленные углы */
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2); /* Тень */
+            animation: zoom 0.6s; /* Анимация */
+        }
+
+        .modal-title {
+            font-family: 'Arial', sans-serif;
+            color: #333;
+        }
+
+        .product-image {
+            width: 100%;
+            max-height: 300px;
+            object-fit: cover;
+            border-radius: 10px; /* Закругление углов для изображения */
+            margin-bottom: 15px;
+        }
+
+        .modal-footer {
+            display: flex;
+            justify-content: flex-end;
+            border-top: 1px solid #eee;
+            padding-top: 10px;
+        }
+
+        .close-button {
+            background-color: #da3636;
+            color: white;
+            padding: 10px 20px;
+            border: none;
             border-radius: 5px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .close-button:hover {
+            background-color: #c62b2b; /* При наведении */
+        }
+
+        @keyframes zoom {
+            from { transform: scale(0); }
+            to { transform: scale(1); }
         }
     </style>
 </head>
@@ -103,39 +158,55 @@
                 <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
                     <div th:each="product, iterator : ${products}" class="col">
                         <article class="card shadow-sm">
-                            <img th:src="@{${product.description}}" class="card-img-top" width="100%" height="225" th:alt="${product.name}">
+                            <img th:src="@{${product.img}}" class="card-img-top" width="100%" height="225" th:alt="${product.name}">
                             <div class="card-body">
                                 <p class="card-text" th:text="${product.name}"></p>
                                 <div class="d-flex justify-content-between align-items-center">
                                     <div class="btn-group">
-<!--Индекс не переменная, вставить в productModal--><button onclick="document.getElementById('productModal${iterator.index + 1}').style.display='block'" type="button" class="btn btn-sm btn-outline-secondary" th:text="'от ' + ${product.price} + ' бел.руб.'"></button>
+                                        <!-- Используем индекс модального окна для каждого товара -->
+                                        <button th:onclick="document.getElementById('modal-[[${iterator.index + 1}]]').style.display='block'" type="button" class="btn btn-sm btn-outline-secondary" th:text="'от ' + ${product.price} + ' бел.руб.'"></button>
                                     </div>
+
                                 </div>
                             </div>
                         </article>
+
+                        <!-- Модальное окно -->
+                        <div th:attr="id='modal-' + (${iterator.index} + 1)" class="modal">
+                            <div class="modal-content card">
+                                <h3 class="modal-title" th:text="${product.name}"></h3>
+                                <img class="product-image" th:src="${product.img}" alt="Product Image" />
+                                <p><strong>Описание: </strong></p>
+                                <p>Обрезная доска — пиломатериал размерами сечений от 16 × 8 мм до 250 × 100 мм. Обрезные доски изготавливаются из древесины разных пород.</p>
+                                <p>Основное отличие обрезной доски — это наличие обзола, не более допустимого по соответствующей нормативной документации.</p>
+                                <p><strong>Цена:</strong> <span th:text="${product.price} + ' бел. руб.'"></span></p>
+                                <div class="modal-footer">
+                                    <button class="close-button">Закрыть</button>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 
-    <!-- Модальные окна -->
-    <div id="productModal1" class="w3-modal">
-        <div class="w3-modal-content w3-card-4 w3-animate-zoom">
-            <span onclick="document.getElementById('productModal1').style.display='none'" class="w3-button w3-xlarge w3-hover-red w3-display-topright" title="Закрыть">&times;</span>
-            <h3>Товар 1</h3>
-            <p><strong>Описание:</strong> Описание товара 1.</p>
-            <p><strong>Цена:</strong> 1999 Руб.</p>
-            <div class="w3-container w3-border-top w3-padding-16 w3-light-grey">
-                <button onclick="document.getElementById('productModal1').style.display='none'" type="button" class="w3-button w3-red">Закрыть</button>
-            </div>
-        </div>
-    </div>
-    <!-- Повторить структуру для товаров 2-15 -->
-
 </main>
 
 <footer th:insert="blocks/footer :: footer"></footer>
+<script>
 
+    function closeModal(modalId) {
+        const modal = document.getElementById(modalId);
+        modal.style.display = "none"; // Скрыть модальное окно
+    }
+
+    document.querySelectorAll('.close-button').forEach(function(button) {
+        button.addEventListener('click', function() {
+            const modalId = button.closest('.modal').id; // Получаем id родительского модального окна
+            closeModal(modalId); // Закрываем модальное окно
+        });
+    });
+</script>
 </body>
 </html>
