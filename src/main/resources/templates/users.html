@@ -1,0 +1,96 @@
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>List of OS</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.0/font/bootstrap-icons.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+
+</head>
+<body>
+<div class="container-fluid">
+    <div class="row flex-nowrap">
+        <div th:replace="sidebar::sidebar"></div>
+
+<div class="container mt-5 col py-3">
+<h3>List of Users</h3>
+    <table class="table table-striped w-auto">
+        <tr>
+            <th>Id</th><th>Username</th><th>Email</th><th>First name</th><th>Last name</th><th>Roles</th><th>Enabled</th><th>Actions</th>
+        </tr>
+        <tbody>
+            <tr th:each="user: ${users}">
+                <td th:utext="${user.id}"></td>
+                <td th:utext="${user.username}"></td>
+                <td th:utext="${user.email}"></td>
+                <td th:utext="${user.firstName}"></td>
+                <td th:utext="${user.lastName}"></td>
+                <td>
+                    <th:block th:each="role: ${user.roles}">
+                        <span th:if="${role.name == 'ADMIN'}" th:utext="${role.name}" class="badge bg-primary"></span>
+                        <span th:if="${role.name == 'USER'}" th:utext="${role.name}" class="badge bg-success"></span>
+                        <span th:if="${role.name == 'CREATOR'}" th:utext="${role.name}" class="badge bg-warning"></span>
+                        <span th:if="${role.name == 'EDITOR'}" th:utext="${role.name}" class="badge bg-info"></span>
+                        <span th:if="${role.name == 'GUEST'}" th:utext="${role.name}" class="badge bg-secondary"></span>
+                    </th:block>
+                </td>
+                <td th:if="${user.enabled}" class="text-center"><i class="bi-check"></i></td>
+                <td th:unless="${user.enabled}" class="text-center"><i class="bi-x"></i></td>
+                <td>
+                    <a th:href="@{/edit_user(id=${user.id})}"><i class="bi-pencil-fill"></i></a>
+                    <a href="#" th:data-id="${user.id}" th:data-username="${user.username}" data-bs-toggle="modal" data-bs-target="#deleteModal" id="aDelete">
+                        <i class="bi-eraser-fill"></i></a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <!-- Modal -->
+    <div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="modalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="modalLabel">Are you sure?</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <span></span>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary" id="buttonDelete">Delete</button>
+                    <form th:action="@{/delete_user}" method="delete" id="formDelete">
+                        <input type="text" id="idDeleted" name = "id" hidden>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+    </div>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js"></script>
+<script th:inline="javascript">
+    $(document).on("click", "#aDelete", function () {
+        var id = $(this).data('id');
+        var username = $(this).data('username');
+
+        $(".modal-body span").html(`Delete user: ${username}`);
+        $("#buttonDelete").click(function(){
+            let modalElem = document.getElementById('deleteModal');
+            modal = bootstrap.Modal.getInstance(modalElem);
+            console.log(modal)
+            modal.hide();
+
+            $("#idDeleted").val(id);
+            $("#formDelete").submit();
+        });
+
+    });
+
+</script>
+</body>
+</html>

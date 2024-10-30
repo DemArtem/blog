@@ -2,10 +2,13 @@ package com.ivl_plus.blog.controllers;
 
 import com.ivl_plus.blog.models.Category;
 import com.ivl_plus.blog.models.Product;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import java.math.BigDecimal;
+import java.security.Principal;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -14,6 +17,8 @@ public class MainController {
 
 	@GetMapping("/")
 	public String home(Model model) {
+		UserDetails principal = (UserDetails) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+
 		List<Product> products = new ArrayList<>();
 
 		// Добавляем продукты в список
@@ -36,17 +41,23 @@ public class MainController {
 		// Добавляем список продуктов в модель
 		model.addAttribute("products", products);
 		model.addAttribute("title", "Главная страница");
+		model.addAttribute("username", principal.getUsername());
+		model.addAttribute("role", principal.getAuthorities().stream().findFirst().get());
+
 		return "home";
 	}
 
 	@GetMapping("/about")
 	public String about(Model model) {
+
+		UserDetails principal = (UserDetails) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+		model.addAttribute("username", principal.getUsername());
+		model.addAttribute("role", principal.getAuthorities().stream().findFirst().get());
+
 		model.addAttribute("title", "Cтраница про нас");
 		return "about";
 	}
 
 }
-//подключить авторизацию   https://github.com/KirillovItstep/a0
-//https://github.com/KirillovItstep/a1
-//https://github.com/KirillovItstep/a1
+//подключить авторизацию
 //https://github.com/KirillovItstep/spring-thymeleaf-users
