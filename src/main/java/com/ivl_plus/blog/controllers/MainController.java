@@ -1,6 +1,5 @@
 package com.ivl_plus.blog.controllers;
 
-import com.ivl_plus.blog.models.Category;
 import com.ivl_plus.blog.models.Product;
 import com.ivl_plus.blog.repo.ProductRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,9 +8,6 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import java.math.BigDecimal;
-import java.security.Principal;
-import java.util.ArrayList;
 import java.util.List;
 
 @Controller
@@ -50,5 +46,4 @@ public class MainController {
 		model.addAttribute("title", "Cтраница про нас");
 		return "about";
 	}
-
 }

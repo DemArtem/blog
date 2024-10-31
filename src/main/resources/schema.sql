@@ -1,7 +1,6 @@
 -- CREATE DATABASE spring_web_blog;
 -- USE spring_web_blog;
 
--- Таблица категорий
 DROP TABLE if EXISTS Orders;
 DROP TABLE if EXISTS Customers;
 DROP TABLE if EXISTS Products;
@@ -20,7 +19,7 @@ CREATE TABLE Products (
     description TEXT,
     price DECIMAL(10, 2) NOT NULL,
     category_id INT,
-    FOREIGN KEY (category_id) REFERENCES Categories(id) ON DELETE CASCADE  --??? drop
+    FOREIGN KEY (category_id) REFERENCES Categories(id) ON DELETE CASCADE
 );
 
 -- Таблица клиентов

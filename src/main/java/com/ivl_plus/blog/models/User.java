@@ -1,7 +1,6 @@
 package com.ivl_plus.blog.models;
 
 import javax.persistence.*;
-import java.util.Set;
 
 @Entity
 @Table(name = "users")
@@ -28,7 +27,6 @@ public class User {
     @Enumerated(EnumType.STRING)
     private Role role;
 
-
     public Long getId() {
         return id;
     }
@@ -52,5 +50,4 @@ public class User {
     public void setPassword(String password) {
         this.password = password;
     }
-
 }
