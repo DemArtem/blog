@@ -4,12 +4,12 @@
         <nav class="my-2 my-md-0 mr-md-3 d-flex justify-content-end" style="width: 90%">
             <a class="p-2 text-dark" href="/">Главная</a>
             <a class="p-2 text-dark" href="/blog">Отзывы</a>
-            <a th:if="${#role=='ADMIN'}" class="p-2 text-dark" href="/blog/add">Добавить отзыв</a>
+            <a class="p-2 text-dark" href="/blog/add">Добавить отзыв</a>
             <a class="p-2 text-dark" href="/about">О нас</a>
             <a class="p-2 text-dark" href="/register">Регистрация</a>
-            <a class="p-2 text-dark" href="/login">Sign-in</a>
-            <a class="p-2 text-dark" href="@{/logout}">Sign-out</a>
-            <h1 th:text="${username}"></h1>
+            <a class="p-2 text-dark" href="/login">Вход</a>
+            <a class="p-2 text-dark" href="@{/logout}">Выход</a>
+            <h5 th:text="'Hello,' + ${username}"></h5>
 
         </nav>
     </div>

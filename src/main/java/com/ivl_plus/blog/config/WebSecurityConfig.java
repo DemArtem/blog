@@ -30,8 +30,8 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .csrf().disable()
                 .authorizeRequests()
                 .antMatchers("/", "/about", "/register", "/login", "**/logout**").permitAll()
-                .antMatchers("/blog").hasAnyAuthority("ADMIN", "USER")
-                .antMatchers("/**").hasAuthority("ADMIN")
+                //.antMatchers("/blog").hasAnyAuthority("ADMIN", "USER")
+                //.antMatchers("/**").hasAuthority("ADMIN")
                 .anyRequest().authenticated()
                 .and()
                 .formLogin()
@@ -47,3 +47,6 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         auth.userDetailsService(userDetailsService).passwordEncoder(passwordEncoder());
     }
 }
+//log-out не работает
+//admin не может редактировать и удалять отзыв
+//добавить css для регистрации и авторизации
