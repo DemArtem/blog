@@ -147,7 +147,7 @@
     </section>
 
     <div class="w3-container">
-        <div class="album py-5 bg-body-tertiary">
+        <div class="album py-5 bg-white">
             <div class="container">
                 <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
                     <div th:each="product, iterator : ${products}" class="col">
@@ -192,7 +192,6 @@
 
 <footer th:insert="blocks/footer :: footer"></footer>
 <script>
-
     function closeModal(modalId) {
         const modal = document.getElementById(modalId);
         modal.style.display = "none"; // Скрыть модальное окно
