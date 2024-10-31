@@ -1,17 +1,38 @@
 <div th:fragment="header">
     <div class="d-flex flex-md-row align-items-center p-3 px-md-4 mb-3 bg-white border-bottom shadow-sm" style="width: 100%">
-        <h5 class="my-0 mr-md-auto font-weight-normal">IVL-plus</h5>
+        <h5 class="my-0 mr-md-auto font-weight-bold text-primary">IVL-plus</h5>
+        <h5 class="p-2 text-dark" th:text="'Hello, ' + ${username}"></h5>
         <nav class="my-2 my-md-0 mr-md-3 d-flex justify-content-end" style="width: 90%">
-            <a class="p-2 text-dark" href="/">Главная</a>
-            <a class="p-2 text-dark" href="/blog">Отзывы</a>
-            <a class="p-2 text-dark" href="/blog/add">Добавить отзыв</a>
-            <a class="p-2 text-dark" href="/about">О нас</a>
-            <a class="p-2 text-dark" href="/register">Регистрация</a>
-            <a class="p-2 text-dark" href="/login">Вход</a>
-            <a class="p-2 text-dark" href="@{/logout}">Выход</a>
-            <h5 th:text="'Hello,' + ${username}"></h5>
-
+            <a class="nav-link" href="/">Главная</a>
+            <a class="nav-link" href="/about">О нас</a>
+            <a class="nav-link" href="/blog">Отзывы</a>
+            <a class="nav-link" href="/blog/add">Добавить отзыв</a>
+            <a class="nav-link" href="/register">Регистрация</a>
+            <a class="nav-link" href="/login">Вход</a>
+            <a class="nav-link" href="/logout">Выход</a>
         </nav>
     </div>
 
+    <style>
+        .bg-white {
+            background-color: #ffffff !important; /* Белый фон */
+        }
+        .text-primary {
+            color: #007bff !important; /* Основной цвет текста */
+        }
+        .nav-link {
+            color: #333;
+            padding: 10px 15px;
+            text-decoration: none;
+            transition: background-color 0.3s ease, color 0.3s ease;
+            border-radius: 4px;
+        }
+        .nav-link:hover {
+            color: #333; /* Цвет текста при наведении */
+            background-color: #f8f3e8; /* Нежно-молочный цвет фона при наведении */
+        }
+        .nav-link:active {
+            background-color: #e2d8c8; /* Цвет фона при нажатии */
+        }
+    </style>
 </div>
