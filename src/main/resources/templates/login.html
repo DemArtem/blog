@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <title>Login</title>
+    <title>Вход</title>
     <style>
         body {
             font-family: 'Arial', sans-serif;
@@ -68,10 +68,10 @@
 </head>
 <body>
 <form th:action="@{/login}" method="post">
-    <h2>Login</h2>
-    <label>Username: <input type="text" name="username" required/></label>
-    <label>Password: <input type="password" name="password" required/></label>
-    <button type="submit">Login</button>
+    <h2>Вход</h2>
+    <label>Введите логин: <input type="text" name="username" required/></label>
+    <label>Введите пароль: <input type="password" name="password" required/></label>
+    <button type="submit">Войти</button>
 </form>
 </body>
 </html>
