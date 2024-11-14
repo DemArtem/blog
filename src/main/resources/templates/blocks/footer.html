@@ -1,49 +1,4 @@
-<div th:fragment="footer">
-    <div class="container">
-        <footer class="text-center text-lg-start text-dark" style="background-color: #f8f9fa;">
-            <section class="d-flex justify-content-between p-2" style="background-color: #d8c4a3; color: white;">
-                <div class="me-5">
-                    <span style="font-size: 1.2rem; font-weight: bold;">Деревообработка и пиломатериалы в Витебске:</span>
-                </div>
-            </section>
-
-            <section>
-                <div class="container text-center text-md-start mt-2">
-                    <div class="row">
-                        <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-2">
-                            <h6 class="text-uppercase fw-bold" style="color: #d8c4a3;">ООО "ИВЛ-плюс"</h6>
-                            <hr class="mb-2 mt-0 d-inline-block mx-auto" style="width: 200px; background-color: #d8c4a3; height: 2px;" />
-                            <p><i class="fas fa-home mr-3"></i>УНП 391507446</p>
-                        </div>
-
-                        <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-2">
-                            <h6 class="text-uppercase fw-bold" style="color: #d8c4a3;">Разделы</h6>
-                            <hr class="mb-2 mt-0 d-inline-block mx-auto" style="width: 200px; background-color: #d8c4a3; height: 2px;" />
-                            <p><a href="/" class="text-dark link-hover">Главная</a></p>
-                            <p><a href="/blog" class="text-dark link-hover">Отзывы</a></p>
-                            <p><a href="/blog/add" class="text-dark link-hover">Добавить отзыв</a></p>
-                            <p><a href="/about" class="text-dark link-hover">О нас</a></p>
-                        </div>
-
-                        <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-2">
-                            <h6 class="text-uppercase fw-bold" style="color: #d8c4a3;">Контакты</h6>
-                            <hr class="mb-2 mt-0 d-inline-block mx-auto" style="width: 200px; background-color: #d8c4a3; height: 2px;" />
-                            <p><i class="fas fa-home mr-3"></i> Витебская обл., Витебский р-н, Шапечинский с/с, д.Старинцы, ул.Советская, д.1г</p>
-                            <p><a href="mailto:demar.demidov@yandex.ru" class="text-dark link-hover">Написать нам на почту</a></p>
-                            <p><a href="https://vk.com/ivl_plus" class="text-dark link-hover">Наша группа в VK</a></p>
-                            <a href="tel:+375297141167" class="text-decoration-none">тел: +375 (29) 714-11-67</a><br>
-                            <a href="tel:+375295939590" class="text-decoration-none">тел: +375 (29) 593-95-90</a>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <div class="text-center p-2" style="background-color: rgba(216, 196, 163, 0.1); border-top: 1px solid #ccc;">
-                © 2024 Copyright: <a class="text-dark" href="https://ivl-plus.by/">ivl-plus.by</a>
-            </div>
-        </footer>
-    </div>
-
+<head>
     <style>
         footer {
             font-family: 'Arial', sans-serif;
@@ -76,4 +31,59 @@
             }
         }
     </style>
+</head>
+
+<body>
+<div th:fragment="footer">
+    <div class="container">
+        <footer class="text-center text-lg-start text-dark" style="background-color: #f8f9fa;">
+            <section class="d-flex justify-content-between p-2" style="background-color: #d8c4a3; color: white;">
+                <div class="me-5">
+                    <span style="font-size: 1.2rem; font-weight: bold;">Деревообработка и пиломатериалы в Витебске:</span>
+                </div>
+            </section>
+
+            <section>
+                <div class="container text-center text-md-start mt-2">
+                    <div class="row">
+                        <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-2">
+                            <h6 class="text-uppercase fw-bold" style="color: #d8c4a3;">ООО "ИВЛ-плюс"</h6>
+                            <hr class="mb-2 mt-0 d-inline-block mx-auto"
+                                style="width: 200px; background-color: #d8c4a3; height: 2px;"/>
+                            <p><i class="fas fa-home mr-3"></i>УНП 391507446</p>
+                        </div>
+
+                        <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-2">
+                            <h6 class="text-uppercase fw-bold" style="color: #d8c4a3;">Разделы</h6>
+                            <hr class="mb-2 mt-0 d-inline-block mx-auto"
+                                style="width: 200px; background-color: #d8c4a3; height: 2px;"/>
+                            <p><a href="/" class="text-dark link-hover">Главная</a></p>
+                            <p><a href="/blog" class="text-dark link-hover">Отзывы</a></p>
+                            <p><a href="/blog/add" class="text-dark link-hover">Добавить отзыв</a></p>
+                            <p><a href="/about" class="text-dark link-hover">О нас</a></p>
+                        </div>
+
+                        <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-2">
+                            <h6 class="text-uppercase fw-bold" style="color: #d8c4a3;">Контакты</h6>
+                            <hr class="mb-2 mt-0 d-inline-block mx-auto"
+                                style="width: 200px; background-color: #d8c4a3; height: 2px;"/>
+                            <p><i class="fas fa-home mr-3"></i> Витебская обл., Витебский р-н, Шапечинский с/с,
+                                д.Старинцы, ул.Советская, д.1г</p>
+                            <p><a href="mailto:demar.demidov@yandex.ru" class="text-dark link-hover">Написать нам на
+                                почту</a></p>
+                            <p><a href="https://vk.com/ivl_plus" class="text-dark link-hover">Наша группа в VK</a></p>
+                            <a href="tel:+375297141167" class="text-decoration-none">тел: +375 (29) 714-11-67</a><br>
+                            <a href="tel:+375295939590" class="text-decoration-none">тел: +375 (29) 593-95-90</a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <div class="text-center p-2"
+                 style="background-color: rgba(216, 196, 163, 0.1); border-top: 1px solid #ccc;">
+                © 2024 Copyright: <a class="text-dark" href="https://ivl-plus.by/">ivl-plus.by</a>
+            </div>
+        </footer>
+    </div>
 </div>
+</body>
