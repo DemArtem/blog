@@ -22,14 +22,14 @@ public class SecurityController {
     @PostMapping("/register")
     public String registerUser(User user, Model model) {
         model.addAttribute("user", user);
-        String result = userService.save(user); // Получаем результат сохранения
+        String result = userService.save(user); //получаем результат сохранения
 
-        if (result != null) { // Если результат не null, значит, произошла ошибка
-            model.addAttribute("errorMessage", result); // Добавляем сообщение об ошибке
-            model.addAttribute("user", new User()); // Очищаем форму
-            return "register"; // Возвращаемся к форме регистрации
+        if (result != null) { //если результат не null, значит, произошла ошибка
+            model.addAttribute("errorMessage", result); //добавляем сообщение об ошибке
+            model.addAttribute("user", new User()); //очищаем форму
+            return "register"; //возвращаемся к форме регистрации
         }
-        return "redirect:/login"; // Успешная регистрация
+        return "redirect:/login"; //успешная регистрация
     }
 
     @GetMapping("/login")
