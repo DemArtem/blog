@@ -17,17 +17,17 @@ public class UserServiceImpl implements UserService {
     private PasswordEncoder passwordEncoder;
 
     @Override
-    public boolean save(User user) { //проверка на уникальность логина?
+    public String save(User user) { // Изменяем возвращаемый тип на String
         User userFromDB = userRepository.findByUsername(user.getUsername());
 
         if (userFromDB != null) {
-            return false;
+            return "Пользователь с таким именем уже зарегистрирован"; // Возвращаем сообщение об ошибке
         }
 
-        user.setPassword(passwordEncoder.encode(user.getPassword()));
-        user.setRole(Role.USER);
-        userRepository.save(user);
-        return true;
+        user.setPassword(passwordEncoder.encode(user.getPassword())); // Шифрование пароля
+        user.setRole(Role.USER); // Установка роли пользователя
+        userRepository.save(user); // Сохранение пользователя в базе данных
+        return null; // Успешное сохранение, возвращаем null
     }
 
     @Override

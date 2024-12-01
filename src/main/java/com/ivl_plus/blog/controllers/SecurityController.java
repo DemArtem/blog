@@ -20,9 +20,16 @@ public class SecurityController {
     }
 
     @PostMapping("/register")
-    public String registerUser(User user) {
-        userService.save(user);
-        return "redirect:/login";
+    public String registerUser(User user, Model model) {
+        model.addAttribute("user", user);
+        String result = userService.save(user); // Получаем результат сохранения
+
+        if (result != null) { // Если результат не null, значит, произошла ошибка
+            model.addAttribute("errorMessage", result); // Добавляем сообщение об ошибке
+            model.addAttribute("user", new User()); // Очищаем форму
+            return "register"; // Возвращаемся к форме регистрации
+        }
+        return "redirect:/login"; // Успешная регистрация
     }
 
     @GetMapping("/login")
