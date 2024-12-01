@@ -56,18 +56,17 @@
             <a class="nav-link" href="/">Главная</a>
             <a class="nav-link" href="/about">О нас</a>
             <a class="nav-link" href="/blog">Отзывы</a>
-            <div th:if="${username != null}">
-                <a class="nav-link" href="/blog/add">Добавить отзыв</a>
-            </div>
-            <div th:if="${username == null}">
-                <a class="nav-link" href="/register">Регистрация</a>
-            </div>
-            <div th:if="${username == null}">
-                <a class="nav-link" href="/login">Вход</a>
-            </div>
-            <div th:if="${username != null}">
-                <a class="nav-link" href="/logout">Выход</a>
-            </div>
+
+                <a th:if="${username != null}" class="nav-link" href="/blog/add">Добавить отзыв</a>
+
+
+                <a th:if="${username == null}" class="nav-link" href="/register">Регистрация</a>
+
+
+                <a th:if="${username == null}" class="nav-link" href="/login">Вход</a>
+
+                <a th:if="${username != null}" class="nav-link" href="/logout">Выход</a>
+
         </nav>
     </div>
 
