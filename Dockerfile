@@ -1,4 +1,3 @@
-FROM src
-COPY . /ivl
-WORKDIR /ivl
-EXPOSE 80
+FROM openjdk:17-jdk-slim
+COPY target/*.jar app.jar
+ENTRYPOINT ["java", "-jar", "/app.jar"]
