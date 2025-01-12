@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.*;
 
 @Controller
 public class SecurityController {
-
+ 
     @Autowired
     private UserService userService;
 
