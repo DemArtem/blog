@@ -19,3 +19,8 @@ clean
 install
 -Ввести в терминале:
 docker compose up --build
+
+Обновить Docker Hub:
+Ввести в терминале:
+docker login
+docker push demar94/blog:latest
