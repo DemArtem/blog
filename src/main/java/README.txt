@@ -14,13 +14,8 @@
 
 Чтобы обновить программу в Docker после внесения
 изменений в код, выполните следующие шаги:
-
-Соберите новый образ:
-docker build -t blog:latest .
-
-Остановите и удалите старый контейнер:
-docker stop blog
-docker rm blog
-
-Запустите новый контейнер:
-docker run -d --name demar94/blog:latest
+-Справа вверху Maven:
+clean
+install
+-Ввести в терминале:
+docker compose up --build
