@@ -16,11 +16,11 @@
 изменений в код, выполните следующие шаги:
 
 Соберите новый образ:
-docker build -t blog:latest
+docker build -t blog:latest .
 
 Остановите и удалите старый контейнер:
-docker stop имя_контейнера
-docker rm имя_контейнера
+docker stop blog
+docker rm blog
 
 Запустите новый контейнер:
 docker run -d --name demar94/blog:latest
